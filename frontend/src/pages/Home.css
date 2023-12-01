@@ -1,0 +1,235 @@
+
+body {
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+  background-color: #000;
+}
+
+.app-container {
+  min-height: 100vh;
+}
+
+/* Header */
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.flex {
+  display: flex;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.header-title {
+  font-size: 2.25rem;
+  font-weight: bold;
+}
+
+.header-nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.header-nav-link {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.header-nav-link:hover {
+  color: #8a4fff;
+}
+
+/* Hero Section */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.hero-text {
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.hero-description {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.hero-button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.primary-button {
+  background-color: #8a4fff;
+  color: #fff;
+}
+
+.secondary-button {
+  border: 1px solid #8a4fff;
+  color: #8a4fff;
+}
+
+/* Features Section */
+.features-section {
+  background-color: #333;
+  padding: 3rem 0;
+}
+
+.features-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 2rem;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.feature-card {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.feature-card-description {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Testimonials Section */
+.testimonials-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.testimonial-card {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.testimonial-card-position {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.testimonial-card-quote {
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Call to Action Section */
+.cta-section {
+  background-color: #8a4fff;
+  color: #fff;
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.cta-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.cta-description {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  background-color: #fff;
+  color: #8a4fff;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.cta-button:hover {
+  background-color: #6c36d2;
+  color: #fff;
+}
+
+/* Footer */
+.footer {
+  background-color: #000;
+  color: #fff;
+  padding: 2rem 0;
+}
+
+.footer-text {
+  font-size: 1rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-link {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.footer-link:hover {
+  color: #8a4fff;
+}
