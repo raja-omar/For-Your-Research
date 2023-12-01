@@ -1,0 +1,56 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+  
+:root {
+    --purple-80: rgba(138, 43, 226, 1);
+    --grey-30: rgba(204, 204, 204, 1);
+    --grey-90: rgba(51, 51, 51, 1);
+    --white: rgba(255, 255, 255, 1);
+    --black: rgba(0, 0, 0, 1);
+    --bg-light: var(--white);
+    --light-text-primary: var(--black);
+    --light-text-secondary: var(--grey-90);
+    --bg-dark: var(--black);
+    --dark-text-primary: var(--white);
+    --dark-text-secondary: var(--grey-30);
+    --selected-highlight: var(--purple-80);
+    --bg-main: var(--bg-light);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --grey-10: rgba(252, 252, 252, 1);
+    --grey-100: rgba(38, 38, 38, 1);
+    --grey-20: rgba(242, 242, 242, 1);
+    --grey-80: rgba(64, 64, 64, 1);
+    --purple-10: rgba(253, 251, 254, 1);
+    --purple-20: rgba(218, 188, 246, 1);
+    --purple-70: rgba(92, 22, 157, 1);
+    --effect-v1: 0px 4px 16px 0px rgba(51, 51, 51, 0.1);
+    --effect-v2: 0px 2px 8px 0px rgba(51, 51, 51, 0.05);
+}
+
+/*
+
+To enable a theme in the HTML, add one of the following data attributes to an HTML element, like so:
+
+<body data-mode="light">
+    <!-- the rest of your content -->
+</body>
+
+You can apply the theme on any DOM node, not just the `body`
+
+*/
+
+[data-mode="light"] {
+    --bg-main: var(--bg-light);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+}
+
+[data-mode="dark"] {
+    --bg-main: var(--bg-dark);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-primary);
+}
