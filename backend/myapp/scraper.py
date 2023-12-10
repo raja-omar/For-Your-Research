@@ -14,11 +14,16 @@ class Scraper:
             print(base_url)
             # Zyte proxies
             proxies = {
-                "http": "http://9c9523aa9eda4426bb2b224187fe21da:@proxy.crawlera.com:8011/",
-                "https": "http://9c9523aa9eda4426bb2b224187fe21da:@proxy.crawlera.com:8011/",
+                #"http": "http://9c9523aa9eda4426bb2b224187fe21da:@proxy.crawlera.com:8011/",
+                #"https": "http://9c9523aa9eda4426bb2b224187fe21da:@proxy.crawlera.com:8011/",
+                #"b0dfd592769e41d89f698d4388cfe576"
+                "http": "http://b0dfd592769e41d89f698d4388cfe576:@proxy.crawlera.com:8011/",
+                "https": "http://b0dfd592769e41d89f698d4388cfe576:@proxy.crawlera.com:8011/",
             }
 
-            response = requests.get(base_url, proxies=proxies, verify='C:\zyte-ca.crt')
+            #response = requests.get(base_url, proxies=proxies, verify='C:\zyte-ca.crt')
+
+            response = requests.get(base_url, proxies=proxies, verify='/Users/haydenchurch/Downloads/zyte-ca.crt')
 
             soup = BeautifulSoup(response.text, 'html.parser')
             for res in soup.select("h3.gs_rt"):

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import SideNavigationBar from "./components/SideNavigationBar";
 import Search from "./pages/Search";
+
 import Header from "./components/Header";
 import NavigationBar from "./components/NavigationBar";
 
