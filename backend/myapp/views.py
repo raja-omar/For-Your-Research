@@ -16,6 +16,7 @@ def scrape_data(request):
     # call_command = python3 manage.py
 
     call_command('scrape_data', query)
+    # after this line we have all our scraped data in the data base
 
     return JsonResponse({'message': 'Scraping initiated successfully'})
 
