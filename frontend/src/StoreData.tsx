@@ -1,13 +1,11 @@
-import React, { useState } from "react";
-import SideNavigationBar from "./components/Navigation/SideNavigationBar";
-import Search from "./pages/Search";
+import { useState } from "react";
 
 import Header from "./components/Header/Header";
 import NavigationBar from "./components/Navigation/NavigationBar";
-import Item from "./components/Paper/Item";
+import CrudComponent from "./pages/StoreDataComponent";
 
 function App() {
-  const [currentPage, setcurrentPage] = useState("Search");
+  const [currentPage, setcurrentPage] = useState("Save records");
 
   return (
     <div className="flex">
@@ -15,7 +13,7 @@ function App() {
       {/* <SideNavigationBar page={currentPage} /> */}
       <div className="flex-1">
         <Header page={currentPage} />
-        <Search />
+        <CrudComponent />
       </div>
     </div>
   );
