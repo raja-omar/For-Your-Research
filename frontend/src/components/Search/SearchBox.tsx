@@ -17,9 +17,12 @@ export default function SearchBox(props: any): JSX.Element {
           queryString
         )}`
       );
-      const res = await fetch("http://127.0.0.1:8000/myapp/api/papers", );
+      const res = await fetch("http://127.0.0.1:8000/myapp/api/papers", {
+        mode: "no-cors",
+      });
       const out = await res.json();
       const papersList = out.map((arrayItem: any) => {
+        console.log(arrayItem);
         return new Paper(
           arrayItem.id,
           arrayItem.title,

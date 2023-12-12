@@ -6,6 +6,6 @@ import StoreData from "./StoreData";
 
 ReactDOM.createRoot(document.getElementById("root")!!).render(
   <React.StrictMode>
-    <StoreData />
+    <App />
   </React.StrictMode>
 );
