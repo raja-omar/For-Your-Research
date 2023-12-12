@@ -12,12 +12,8 @@ export default function Papers(props: any): JSX.Element {
             key={index}
             title={paper.title}
             link={paper.link}
-            citedByNumber={paper.cited_by_number}
-            citedByLink={paper.cited_by_link} // Doesn't work with paper.cited_by_link and same for others
-            versionLink={paper.version_link}
-            versionNumber={paper.version_number}
             delete={false}
-            editable={false}
+            editable={true}
           />
         );
       })}

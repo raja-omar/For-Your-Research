@@ -45,6 +45,7 @@ export default function CrudComponent(): JSX.Element {
               {...paper}
               onSaveClick={handleSaveClickInItem}
               onRemoveClick={handleRemoveItem}
+              editable={true}
             />
           ))}
         </div>
