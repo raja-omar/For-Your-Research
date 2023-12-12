@@ -1,5 +1,4 @@
 from django.contrib import admin
-from .models import Paper, Citation
+from .models import Paper
 # Register your models here.
 admin.site.register(Paper)
-admin.site.register(Citation)

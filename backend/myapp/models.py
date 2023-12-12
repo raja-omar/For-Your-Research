@@ -3,6 +3,10 @@ from django.db import models
 class Paper(models.Model):
     title = models.CharField(max_length=500, default="")
     link = models.URLField(default='http://example.com')
+    cited_by_number = models.IntegerField(default=0)
+    cited_by_link = models.URLField(default='http://example.com')
+    version_number = models.IntegerField(default=0)
+    version_link = models.URLField(default='http://example.com')
     related_articles_link = models.URLField(default='http://example.com')
     year = models.IntegerField(default=0)
 
@@ -36,7 +40,6 @@ class PaperVersion(models.Model):
 class Author(models.Model):
     name = models.CharField(max_length=300, default="")
     # forign key = paper
-
 
 # Update, delete
 class Record(models.Model):

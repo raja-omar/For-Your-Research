@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-from myapp.models import Paper, ScrapingStatus
+from myapp.models import Paper
 from urllib.parse import quote
 
 class Scraper:
@@ -44,8 +44,6 @@ class Scraper:
 
                 # Parent element of containers that have paper title/links
                 if not soup.select("div.gs_ri"):
-                    ss = ScrapingStatus(status=1)
-                    ss.save()
                     break
 
                 self.page += 10
