@@ -12,7 +12,7 @@ export default function NavigationBar(props: any): JSX.Element {
     return(
         <div className={`${isCollapsed ? " w-16" : "w-44"} flex flex-col gap-12 bg-bg-dark relative duration-300`}>
             <div className="flex justify-between p-3">
-                <h1 className="text-white font-semibold text-lg">FYR</h1>
+                <h1 className="text-white font-semibold text-lg">RH</h1>
                 <BsArrowLeftShort className={`absolute bg-white text-black text-lg rounded-full cursor-pointer  -right-3 top-4 border border-black  ${isCollapsed && "rotate-180"}`} onClick={handleToggleCollapse}/>
             </div>
             <ul className="flex flex-1 flex-col gap-5 px-5">
