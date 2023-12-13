@@ -8,5 +8,7 @@ router.register(r'papers', PaperViewSet, basename='paper')
 urlpatterns = [
     path('api/', include(router.urls)),
     path('api/scrape/', scrape_data, name='scrape_data'),
-    path('api/getstatus', get_scraping_status)
+    path('api/getstatus', get_scraping_status),
+
 ]
+

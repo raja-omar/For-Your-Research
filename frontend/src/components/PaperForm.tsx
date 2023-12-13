@@ -126,10 +126,12 @@ const AddPaperForm: React.FC<{ onSubmit: (paper: any) => void }> = ({
         </div>
         {/* Add more fields as needed */}
       </div>
-      <div className="flex justify-end items-center">
+      <div className="flex justify-end items-center mt-4">
+        {" "}
+        {/* Added margin-top to create space */}
         <button
           type="submit"
-          className="bg-purple-500 text-white py-2 px-4 rounded-md hover:bg-purple-600 transition duration-300"
+          className="bg-black text-white py-2 px-4 rounded-md hover:bg-purple-600 transition duration-300"
         >
           Add Record
         </button>

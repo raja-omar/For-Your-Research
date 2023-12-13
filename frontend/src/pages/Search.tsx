@@ -1,8 +1,8 @@
 import { useState } from "react";
-import Papers from "../components/Paper/Papers";
-import Header from "../components/Header/Header";
+import Papers from "../components/Papers";
+import Header from "../components/Header";
 import Paper from "../util/Paper";
-import SearchBox from "../components/Search/SearchBox";
+import SearchBox from "../components/SearchBox";
 
 export default function Search(): JSX.Element {
   const [papers, setPapers] = useState<Paper[]>([]);
@@ -17,6 +17,7 @@ export default function Search(): JSX.Element {
           setIsLoaded={setIsLoaded}
           setFetchingInProgress={setFetchingInProgress}
         />
+
         <Papers
           papers={papers}
           isLoaded={isLoaded}

@@ -3,10 +3,7 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import About from "./About";
 import Search from "./Search";
-import SignInForm from "../components/Auth/SignInForm";
-import SignUpForm from "../components/Auth/SignUpForm";
 
 const Home: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -221,7 +218,6 @@ const App: React.FC = () => {
 
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
           <Route path="/search" element={<Search />} />
         </Routes>
       </div>

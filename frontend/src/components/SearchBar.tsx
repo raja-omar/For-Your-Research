@@ -12,6 +12,7 @@ export default function SearchBar(props: any): JSX.Element {
         try {
             let flag = false;
             await fetch(`http://127.0.0.1:8000/myapp/api/scrape/?query=${encodeURIComponent(query)}`);
+            //await new Promise(r => setTimeout(r, 5000));
             const res = await fetch("http://127.0.0.1:8000/myapp/api/papers");
             console.log(res.json());
         } catch(error) {
@@ -42,3 +43,13 @@ export default function SearchBar(props: any): JSX.Element {
     );
 }
 
+/*
+<div className="items-center justify-between pl-[24px] pr-0 py-0 flex-1 self-stretch grow flex relative">
+            <div className="relative w-fit [font-family:'Manrope-Medium',Helvetica] font-medium text-black text-lg tracking-[0] leading-[23.4px] whitespace-nowrap">
+                Juvenile Diabetes
+            </div>
+            <div className="inline-flex items-center justify-center gap-[8px] px-[20px] py-[16px] relative flex-[0_0_auto]   bg-neutral-800 rounded-[0px_4px_4px_0px]">
+                <FaSearch className="!relative !w-[24px] !h-[24px]" color="white" />
+            </div>
+        </div>
+*/

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 interface EditedValues {
   [key: string]: string; // Adjust the type based on your use case
@@ -12,6 +12,25 @@ const Item = (props: any): JSX.Element => {
   const manageColor = (bgColor: string) => {
     setColor((prevColor) => (bgColor === prevColor ? "bg-white" : bgColor));
   };
+
+  // Function to determine color based on relevance
+  const getColorBasedOnRelevance = () => {
+    const relevance = parseFloat(props.relevance);
+
+    if (relevance >= 0.8) {
+      return "bg-emerald-300";
+    } else if (relevance >= 0.75 && relevance < 0.8) {
+      return "bg-amber-200";
+    } else {
+      return "bg-red-300";
+    }
+  };
+
+  useEffect(() => {
+    // Set color based on relevance when component mounts
+    const initialColor = getColorBasedOnRelevance();
+    setColor(initialColor);
+  }, [props.relevance]);
 
   const handleEditClick = (field: string) => {
     setEditableField(field);
@@ -98,6 +117,15 @@ const Item = (props: any): JSX.Element => {
             </a>
           </h1>
         </div>
+        {props.relevance && (
+          <h2 className="text-gray-700">
+            <span className="font-semibold">
+              {"Relevance: " +
+                (Math.round(props.relevance * 100) / 100) * 100 +
+                "%"}
+            </span>{" "}
+          </h2>
+        )}
 
         {props.author && (
           <h2 className="text-gray-700">
@@ -123,10 +151,18 @@ const Item = (props: any): JSX.Element => {
         )}
         {props.versionLink && props.versionNumber && (
           <h2 className="text-gray-700">
-            <span className="font-semibold">Version(s): <a href={props.versionLink}>{props.versionNumber}</a></span>{" "}
+            <span className="font-semibold">
+              Version(s): <a href={props.versionLink}>{props.versionNumber}</a>
+            </span>{" "}
             <a href={props.versionLink} className="text-blue-500">
               {renderField("versionNumber")}
             </a>
+          </h2>
+        )}
+        {props.relatedArticles && (
+          <h2 className="text-gray-700">
+            <a href={props.relatedArticles}>Related articles</a>
+            {renderField("relatedArticles")}
           </h2>
         )}
         {props.publication && (

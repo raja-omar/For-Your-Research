@@ -1,9 +1,9 @@
 // src/pages/CrudComponent.tsx
 
 import { useState } from "react";
+import PaperForm from "../components/PaperForm";
+import Item from "../components/Item";
 import ManualPaper from "../util/ManualPaper";
-import PaperForm from "../components/Paper/PaperForm";
-import Item from "../components/Paper/Item";
 
 export default function CrudComponent(): JSX.Element {
   const [papers, setPapers] = useState<ManualPaper[]>([]);
@@ -46,6 +46,7 @@ export default function CrudComponent(): JSX.Element {
               onSaveClick={handleSaveClickInItem}
               onRemoveClick={handleRemoveItem}
               editable={true}
+              delete={true}
             />
           ))}
         </div>

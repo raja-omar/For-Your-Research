@@ -11,52 +11,49 @@ class Scraper:
     def scrape_and_save_data(self):
         while True:
             base_url = self.construct_url()
-
+            print(base_url)
             # Zyte proxies
             proxies = {
                 "http": "http://b0dfd592769e41d89f698d4388cfe576:@proxy.crawlera.com:8011/",
                 "https": "http://b0dfd592769e41d89f698d4388cfe576:@proxy.crawlera.com:8011/",
             }
 
-            # Full path to the CA certificate
-            ca_cert_path = '/Users/rajamuhammedomar/Downloads/zyte-ca.crt'
+            response = requests.get(base_url, proxies=proxies, verify='/Users/rajamuhammedomar/Downloads/zyte-proxy-ca.crt')
 
-            try:
-                response = requests.get(base_url, proxies=proxies, verify=ca_cert_path)
-                response.raise_for_status()
+            soup = BeautifulSoup(response.text, 'html.parser')
+            citedNumber ="https://scholar.google.com"+self.extract_cited_by_number(soup)
+            citedLink = "https://scholar.google.com"+self.extract_cited_by_link(soup)
+            versionsLink, versionsNumber = self.extract_all_versions_link_and_number(soup)
+            versionsLink = "https://scholar.google.com"+ versionsLink
+            
+            # relatedArticles = self.extract_related_articles_link(soup)
+            for res in soup.select("h3.gs_rt"):
+                try:
+                    article_title = res.text
+                    article_link = res.a["href"]
 
-                soup = BeautifulSoup(response.text, 'html.parser')
-                citedNumber = self.extract_cited_by_number(soup)
-                citedlink = self.extract_cited_by_link(soup)
-                relatedArticles = self.extract_related_articles_link(soup)
-                all_versions_link, all_versions_number = self.extract_all_versions_link_and_number(soup)
-                
+                    # killing myself if it still doesn't work
+                    paper = Paper(title=article_title, link=article_link, cited_by_number = citedNumber, cited_by_link = citedLink, versions_link = versionsLink, versions_number = versionsNumber)
+                    paper.save()
+                except Exception as e:
+                    # Handle any exceptions
+                    pass
 
-                for res in soup.select("h3.gs_rt"):
-                    try:
-                        article_title = res.text
-                        article_link = res.a["href"]
+            # Parent element of containers that have paper title/links
+            # If there's no longer such element, then all available pages have been scraped.
+            if not soup.select("div.gs_ri"):
+                ss = ScrapingStatus(status=1)
+                ss.save()
+                break
 
-                        paper = Paper(title=article_title, link=article_link, cited_by_link=citedlink, cited_by_number =citedNumber, version_link=all_versions_link, version_number = all_versions_number, related_articles_link= relatedArticles)
-                        paper.save()
-                    except Exception as e:
-                        print(f"Error processing paper: {e}")
-
-                # Parent element of containers that have paper title/links
-                if not soup.select("div.gs_ri"):
-                    ss = ScrapingStatus(status=1)
-                    ss.save()
-                    break
-
-                self.page += 10
-
-            except requests.RequestException as e:
-                print(f"Request error: {e}")
-                # Handle the error (e.g., retry, raise, etc.)
+            # Doesn't work with 20 results per page, so going with 10 for now
+            self.page += 10
 
     def construct_url(self):
+        # Use quote only if the query contains spaces
         formatted_query = quote(self.query) if ' ' in self.query else self.query
         return f"https://scholar.google.com/scholar?start={self.page}&q={formatted_query}&hl=en&as_sdt=0,5"
+
 
     @staticmethod
     def extract_cited_by_number(soup):
@@ -67,7 +64,6 @@ class Scraper:
             cited_by_number = int(cited_by_text_parts[-1]) if cited_by_text_parts else 0
             return cited_by_number
         return 0  # Return 0 if 'Cited by' is not found
-
 
     @staticmethod
     def extract_related_articles_link(soup):

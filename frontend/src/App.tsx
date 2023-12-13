@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import SideNavigationBar from "./components/Navigation/SideNavigationBar";
+import SideNavigationBar from "./components/SideNavigationBar";
 import Search from "./pages/Search";
-
-import Header from "./components/Header/Header";
-import NavigationBar from "./components/Navigation/NavigationBar";
-import Item from "./components/Paper/Item";
+import Header from "./components/Header";
+import NavigationBar from "./components/NavigationBar";
 
 function App() {
   const [currentPage, setcurrentPage] = useState("Search");
@@ -14,9 +12,10 @@ function App() {
       <NavigationBar page={currentPage} />
       {/* <SideNavigationBar page={currentPage} /> */}
       <div className="flex-1">
-        <Header page={currentPage} />
+        <Header page={currentPage}/>
         <Search />
       </div>
+      
     </div>
   );
 }
