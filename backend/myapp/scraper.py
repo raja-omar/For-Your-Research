@@ -21,10 +21,10 @@ class Scraper:
             response = requests.get(base_url, proxies=proxies, verify='/Users/rajamuhammedomar/Downloads/zyte-proxy-ca.crt')
 
             soup = BeautifulSoup(response.text, 'html.parser')
-            citedNumber ="https://scholar.google.com"+self.extract_cited_by_number(soup)
-            citedLink = "https://scholar.google.com"+self.extract_cited_by_link(soup)
+            citedNumber =self.extract_cited_by_number(soup)
+            citedLink = self.extract_cited_by_link(soup)
             versionsLink, versionsNumber = self.extract_all_versions_link_and_number(soup)
-            versionsLink = "https://scholar.google.com"+ versionsLink
+            versionsLink = versionsLink
             
             # relatedArticles = self.extract_related_articles_link(soup)
             for res in soup.select("h3.gs_rt"):
