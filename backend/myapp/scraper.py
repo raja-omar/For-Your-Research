@@ -14,8 +14,8 @@ class Scraper:
             print(base_url)
             # Zyte proxies
             proxies = {
-                "http": "http://b0dfd592769e41d89f698d4388cfe576:@proxy.crawlera.com:8011/",
-                "https": "http://b0dfd592769e41d89f698d4388cfe576:@proxy.crawlera.com:8011/",
+                "http": "http://",
+                "https": "http://",
             }
 
             response = requests.get(base_url, proxies=proxies, verify='/Users/rajamuhammedomar/Downloads/zyte-proxy-ca.crt')
