@@ -77,7 +77,7 @@ def sortByRelevance(search_term, article_titles):
         Takes a string for search term as input
         Takes a 1d list of strings as input
     '''
-    OPENAI_API_KEY = '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'
+    OPENAI_API_KEY = ''
     client = OpenAI(api_key=OPENAI_API_KEY)
 
     search_response = get_emb(search_term, client)
